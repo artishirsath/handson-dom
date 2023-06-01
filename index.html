@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>JS Handson </title>
+
+    <style>
+        body{
+            background-color: black;
+        }
+        pre{
+            background-color: white;
+            padding: 15px;
+            border: 2px solid grey;
+            border-radius: 10px;
+            font-size: 20px;
+            color: rgb(21, 200, 206);
+        
+        }
+        p {
+            color: purple;
+            font-size: 25px;
+        }
+
+        h1{
+            text-align: center;
+            color: aqua;
+            font-weight: bolder;
+            font-size: 5em;
+            margin: 15px;
+        }
+        .box {
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+        }
+        #flex-container {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .flex-item-1 {
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            border: 3px solid aqua;
+        }
+        button{
+            background-color: blue;
+            color: white;
+            padding: 5px 10px;
+           
+        }
+        #button,
+        #replace,
+        #contentchange {
+            background-color: blue;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        span {
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+        }
+        
+        #text{
+            color: white;
+        }
+        .box1{
+            color: white;
+        }
+        .ea{
+            font-size: 20px;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            font-weight: bold;
+            background-color: white;
+            padding: 15px;
+            border: 2px solid grey;
+            border-radius: 10px;
+            font-size: 20px;
+            color: rgb(21, 200, 206);
+        }
+        
+
+
+        
+
+    </style>
+
+</head>
+<body>
+    <h1>JS Handson (DOM)</h1>
+
+    <p><b>1.Write the code to access element which is having id as "text"</b></p>
+    <p id="text">Prepbyte Class</p>
+    <pre>
+        const Qut1 = document.getElementById('text')
+    </pre><hr>
+
+    <p><b>2.Write the code to access element which is having tag as "h1"</b></p>
+    <h1 class="ea">EA-23 Batch</h1>
+    <pre>
+        const Qut2 = document.getElementsByTagName('h1')
+    </pre><hr>
+
+    <p><b>3.Write the code to access element which is having class as "box1"</b></p>
+    <p class="box1">Welcome To Prepbyte</p>
+    <pre>const Qut3 = document.getElementsByClassName('box1')</pre><hr>
+
+    <p><b>4.Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</b></p>
+    <p class="box">Hello </p>
+
+
+    <pre>
+        var a=document.getElementsByClassName("box");
+        console.log(a[0].innerHTML);
+
+        a[0].innerHTML="Hello World";
+    
+        console.log(a[0].innerText);
+        a[0].innerText="Hello";
+        
+        a[0].addEventListener("click", () => {
+           a[0].innerHTML="Hello World";
+        })
+    </pre><hr>
+
+    <p><b>5.Create an HTML page having content as Hello world and a button named Replace Text. When user will click on
+        this button page content should be changed to "Welcome to Elevation academy"</b></p>
+        <span id="span">Hello World</span>
+        <button id="replace" onclick="onbuttoncreplace()">Replace Text</button>
+
+        <pre>
+            function onbuttoncreplace(){
+            var spann = document.getElementById('span')
+            spann.textContent = "Welcome To Elevation Academy"
+        
+            }
+        </pre><hr>
+
+    <p><b>6.heading "Hello" Add one style attribute and give text color as red and id attribute and give the id value as ""heading"" in the above given h1 tag using DOM functions"</b></p>
+    <h3>Hello </h3>
+        <pre>
+            const Qut6 = document.getElementsByTagName('h3')[0]
+            Qut6.setAttribute("id", "new")
+            const change = document.getElementById('new')
+            change.style.color = "red"
+        </pre><hr>
+
+        <p><b>7.Create three cards on HTML page and arrange them using flex property in row or horizontal direction and
+            also create button at the bottom named "Change Flex direction". When user clicks on this button, the
+            cards arrangement should be changed to vertical direction.</b></p>
+    <div id="flex-container">
+        <div class="flex-item-1"></div>
+        <div class="flex-item-1"></div>
+        <div class="flex-item-1"></div>
+
+    </div>
+
+    <button id="button" onclick="onbuttonclick()">Click to Change</button>
+    <pre>
+        function onbuttonclick(){
+            var flex = document.getElementById('flex-container')
+            if(flex.style.flexDirection == "row"){
+                flex.style.flexDirection = "column"
+                console.log('column');
+            }
+            else{
+                flex.style.flexDirection = "row"
+                console.log('row');
+
+            }
+        }
+    </pre><hr>
+
+    <p><b>8.What is the difference between window vs document?</b></p>
+    <pre>
+        *window*<br>
+        The window object is the topmost object of the DOM hierarchy. <br>It represents a browser window or frame that displays the contents of the webpage.<br> Whenever a window appears on the screen to display<br> the contents of the document, the window object is created.<br>
+        *Document*<br>
+        The document object represent a web page that is loaded in the browser.<br> By accessing the document object,we can access the element in the HTML page.
+    
+    </pre><hr>
+
+    <p><b>9.Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every
+        second</b></p>
+
+<div class="big-time">
+    <span>TIME</span>
+    <span id="hour">00</span>
+    <span>:</span>
+    <span id="minute">00</span>
+    <span>:</span>
+    <span id="sec">00</span>
+    <span id="sessi">AM</span>
+
+</div>
+    <pre>
+            var sessii = ""
+            const settime1 = () => {
+            var d = new Date()
+            var hr = d.getHours()
+            var mi = d.getMinutes()
+            var se = d.getSeconds()
+            if (hr >= 12) {
+                sessii = 'PM'
+            }
+            else {
+                sessii = 'AM'
+            }
+
+            if (hr > 12) {
+                hr = hr - 12
+            }
+            document.getElementById('hour').innerText = hr
+            document.getElementById('minute').innerText = mi
+            document.getElementById('sec').innerText = se
+            document.querySelector('#sessi').innerText = sessii
+
+            }
+            settime1();
+            setInterval(settime1, 1000)
+        </pre><hr>
+        <p><b>Q10</b></p>
+
+        <a href="https://artishirsath.github.io/game/">Click Here To Play Game</a>
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
